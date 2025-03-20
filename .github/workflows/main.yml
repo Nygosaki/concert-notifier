@@ -1,0 +1,37 @@
+name: Run Python Script
+
+on:
+  schedule:
+    - cron: '0 0 1 * *'  # Runs daily at midnight UTC
+  workflow_dispatch:  # Allows manual triggering
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+    environment: Private Notifier
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Set up
+        run: |
+          pip install -r requirements.txt
+          rm .env
+
+      - name: Run Script
+        env:
+          LASTFM_API_KEY: ${{ secrets.LASTFM_API_KEY }}
+          LASTFM_USERNAME: ${{ secrets.LASTFM_USERNAME }}
+          RECIPIENT_EMAIL: ${{ secrets.RECIPIENT_EMAIL }}
+          SENDER_EMAIL: ${{ secrets.SENDER_EMAIL }}
+          SENDER_NAME: ${{ secrets.SENDER_NAME }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_SERVER: ${{ secrets.SMTP_SERVER }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+        run: python main.py --refresh
