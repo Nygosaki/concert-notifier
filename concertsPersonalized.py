@@ -60,7 +60,7 @@ class personalizedConcerts:
             if self.events[artist].__len__() == 0: continue
             self.eventsImportant[artist] = []
             for event in self.events[artist]:
-                if str(event["raw"]) in self.f.concertsOld and event["date"] > (datetime.now() + timedelta(weeks=2)): continue
+                if str(event["raw"]) in self.f.concertsOld and event["date"] > (datetime.now() + timedelta(days=30)): continue
                 self.f.concertsOld.append(str(event["raw"]))
                 self.eventsImportant[artist].append(event)
         self.f.concertsOldUpdate()

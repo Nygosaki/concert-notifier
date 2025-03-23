@@ -45,3 +45,14 @@ If you use last.fm, you can also specify your username in the .env file, and it 
 
 - If you want to use the last.fm integration, you need to add an API key as well. You can acquire it at [https://www.last.fm/api/authentication](https://www.last.fm/api/authentication) if you don't already have one.  
 - If you want to use the email integration, you need to specify SMTP server information.  
+
+## How does it look?
+
+![image](https://github.com/user-attachments/assets/1e3a3c7a-6d38-457c-8021-457b06f5cfbd)
+
+## How does it work? And why?
+
+Spotify and Songkick never notified me about al lthe concerts and artists I care about, so I made this to give me information for all the artists I could ever want! It can pull artists automatically from your last.fm library, or you can manually add them.  
+It scrapes multiple songkick servises and for the artists you want. It then gets their events, and filters them by country :).  
+It then sends you this info via a SMTP TLS connection to an email server. The sender display information can also thus be configured.  
+It can also just save the html content of the email locally into it's parent folder if you don't have a server and domain to use.  
