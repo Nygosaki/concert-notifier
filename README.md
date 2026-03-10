@@ -1,5 +1,8 @@
 # concert-notifier
 
+> [!IMPORTANT]
+> Songkick has implemented a new anti-scraping mechanism as well as severe rate limiting. I am no longer able to maintain this project, and I have no plans to update it in the future. If you feel like you can contribute to this project and fix the scraping, feel free to fork it and make a pull request. I will be happy to review it and merge it if it works.
+
 Get notified of your favourite artists' events near you!
 
 ## What does this do?
